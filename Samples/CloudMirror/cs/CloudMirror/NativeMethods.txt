@@ -1,0 +1,28 @@
+// Cloud Files API
+CfCreatePlaceholders
+CfDehydratePlaceholder
+CfHydratePlaceholder
+
+// CloudProviderSyncRootWatcher
+CreateFile
+
+// ContextMenus
+_EXPCMDFLAGS
+_EXPCMDSTATE
+IExplorerCommand
+SHChangeNotify
+
+// FakeCloudProvider
+CSearchManager
+FOLLOW_FLAGS
+ISearchCatalogManager
+ISearchCrawlScopeManager
+ISearchManager
+
+// ShellServices
+CoRegisterClassObject
+REGCLS
+
+// ThumbnailProvider
+IInitializeWithItem
+IThumbnailProvider

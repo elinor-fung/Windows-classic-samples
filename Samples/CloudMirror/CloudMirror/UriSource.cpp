@@ -14,6 +14,7 @@ namespace winrt::CloudMirror::implementation
 {
     void UriSource::GetPathForContentUri(hstring const& contentUri, Windows::Storage::Provider::StorageProviderGetPathForContentUriResult const& result)
     {
+        wprintf(L"Getting path for %s\n", contentUri.data());
         result.Status(StorageProviderUriSourceStatus::FileNotFound);
 
         std::wstring prefix(L"http://cloudmirror.example.com/contentUri/");
@@ -34,6 +35,8 @@ namespace winrt::CloudMirror::implementation
 
     void UriSource::GetContentInfoForPath(hstring const& path, Windows::Storage::Provider::StorageProviderGetContentInfoForPathResult const& result)
     {
+        wprintf(L"Getting content info for %s\n", path.data());
+
         result.Status(StorageProviderUriSourceStatus::FileNotFound);
         PCWSTR fileName = PathFindFileName(path.c_str());
         std::wstring id(L"http://cloudmirror.example.com/contentId/");

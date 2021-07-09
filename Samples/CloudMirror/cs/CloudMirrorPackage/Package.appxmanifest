@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  xmlns:desktop3="http://schemas.microsoft.com/appx/manifest/desktop/windows10/3"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
+  IgnorableNamespaces="uap rescap">
+
+  <Identity
+    Name="b4d7f4ef-8347-4887-986e-8487a2b18591"
+    Publisher="CN=elfung"
+    Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>Cloud Mirror Sample (C#)</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="Cloud Mirror Sample (C#)"
+        Description="Cloud Mirror Sample (C#)"
+        BackgroundColor="transparent"
+        Square150x150Logo="Images\Square150x150Logo.png"
+        Square44x44Logo="Images\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Images\SplashScreen.png" />
+      </uap:VisualElements>
+      <Extensions>
+        <desktop3:Extension Category="windows.cloudFiles">
+          <desktop3:CloudFiles>
+            <desktop3:CustomStateHandler Clsid="8189A68C-2ECF-4565-88D7-A898C8C1D74A"/>
+            <desktop3:ThumbnailProviderHandler Clsid="C6438A70-67D4-4ADA-A399-039B867C58FB"/>
+            <desktop3:ExtendedPropertyHandler Clsid="20000000-0000-0000-0000-000000000001"/>
+            <desktop3:BannersHandler Clsid="20000000-0000-0000-0000-000000000001"/>
+            <desktop3:CloudFilesContextMenus>
+              <desktop3:Verb Id="Command1" Clsid="BAF1DD7E-1878-4737-BA01-885DF393101C" />
+            </desktop3:CloudFilesContextMenus>
+            <desktop4:ContentUriSource Clsid="F64E794B-CD29-4029-8A4D-C411B0D415A3"/>
+          </desktop3:CloudFiles>
+        </desktop3:Extension>
+        <com:Extension Category="windows.comServer">
+          <com:ComServer>
+            <com:ExeServer DisplayName="Cloud Mirror Thumbnail Handler" Executable="CloudMirror\CloudMirror.exe">
+              <com:Class Id="C6438A70-67D4-4ADA-A399-039B867C58FB" />
+            </com:ExeServer>
+            <com:ExeServer DisplayName="Cloud Mirror Command Handler" Executable="CloudMirror\CloudMirror.exe">
+              <com:Class Id="BAF1DD7E-1878-4737-BA01-885DF393101C" />
+            </com:ExeServer>
+            <com:ExeServer DisplayName="Cloud Mirror Custom State Handler" Executable="CloudMirror\CloudMirror.exe">
+              <com:Class Id="8189A68C-2ECF-4565-88D7-A898C8C1D74A" />
+            </com:ExeServer>
+            <com:ExeServer DisplayName="Cloud Mirror Uri Source" Executable="CloudMirror\CloudMirror.exe">
+              <com:Class Id="F64E794B-CD29-4029-8A4D-C411B0D415A3" />
+            </com:ExeServer>
+          </com:ComServer>
+        </com:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
