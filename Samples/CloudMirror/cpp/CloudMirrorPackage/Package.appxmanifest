@@ -16,7 +16,7 @@
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>Cloud Mirror Sample</DisplayName>
+    <DisplayName>Cloud Mirror Sample (C++)</DisplayName>
     <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
